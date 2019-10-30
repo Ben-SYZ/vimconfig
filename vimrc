@@ -14,6 +14,8 @@ nnoremap ; :
 "c/C short for ctrl, s/S short for Shift, CR/cr  short for Enter
 nnoremap <C-h> 0
 nnoremap <C-l> $
+nnoremap J 5j
+nnoremap K 5k
 nnoremap S :w<CR>
 nnoremap Q :q<CR>
 nnoremap R :source $MYVIMRC<CR>
@@ -28,7 +30,7 @@ nnoremap sk :set nosplitright<CR>:split<CR>
 ":e a.py 
 
 "exchange split window
-nnoremap <LEADER>h <C-w>l
+nnoremap <LEADER>h <C-w>h
 nnoremap <LEADER>j <C-w>j
 nnoremap <LEADER>k <C-w>k
 nnoremap <LEADER>l <C-w>l
@@ -39,9 +41,13 @@ nnoremap <left> :vertical resize -5<CR>
 nnoremap <right> :vertical resize +5<CR>
 "new window
 nnoremap tu :tabe<CR>
-"exchange in tab window
+"exchange in tab
 nnoremap th :-tabnext<CR>
 nnoremap tl :tabnext<CR>
+"vim a b c change windows
+nnoremap bh :bn<CR>
+nnoremap bl :bp<CR>
+
 "change the vertical split to horizontal, vise versa
 nnoremap sv <C-w>t<C-w>H
 nnoremap sh <C-w>t<C-w>K
@@ -84,7 +90,7 @@ filetype indent on
 filetype plugin on
 filetype plugin indent on
 "you can use mouse in vim
-set mouse=a
+"set mouse=a
 set encoding=utf-8
 "some terminal cannot show the color not correctly
 "????????????????
@@ -96,7 +102,7 @@ set encoding=utf-8
 "set shiftwidth=2
 "set softtabstop=2
 
-"show the blank at the and of the line??
+"show the blank at the end of the line??
 set list 
 set listchars=tab:▸\ ,trail:▫
 set scrolloff=5
@@ -106,7 +112,11 @@ set indentexpr=
 "backspace can del the <CR>
 set backspace=indent,eol,start
 "make the code can be folded
-set foldmethod=indent
+"set foldmethod=indent
+"zc      折叠
+"zC     对所在范围内所有嵌套的折叠点进行折叠
+"zo      展开折叠
+"zO     对所在范围内所有嵌套的折叠点展开
 "change the cursor at different mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
