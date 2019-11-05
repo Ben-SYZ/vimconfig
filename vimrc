@@ -1,3 +1,15 @@
+"
+"=== Auto load for the first time
+"
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
+
+
 let mapleader=" "
 "colorscheme peachpuff
 "color delek 
@@ -19,6 +31,7 @@ nnoremap K 5k
 nnoremap S :w<CR>
 nnoremap Q :q<CR>
 nnoremap R :source $MYVIMRC<CR>
+nnoremap <LEADER>rc :e ~/.vim/vimrc<CR>
 "no opperation
 "map s <nop>
 nnoremap sl :set splitright<CR>:vsplit<CR>
@@ -39,14 +52,14 @@ nnoremap <up> :res +5<CR>
 nnoremap <down> :res -5<CR>
 nnoremap <left> :vertical resize -5<CR>
 nnoremap <right> :vertical resize +5<CR>
-"new window
-nnoremap tu :tabe<CR>
+"new tab
+nnoremap tn :tabe<CR>
 "exchange in tab
 nnoremap th :-tabnext<CR>
 nnoremap tl :tabnext<CR>
 "vim a b c change windows
-nnoremap bh :bn<CR>
-nnoremap bl :bp<CR>
+nnoremap wh :bp<CR>
+nnoremap wl :bn<CR>
 
 "change the vertical split to horizontal, vise versa
 nnoremap sv <C-w>t<C-w>H
@@ -55,11 +68,9 @@ nnoremap sh <C-w>t<C-w>K
 "highlight
 "syntax off
 "default on
-
 set cursorline
-
 "change lines automatially to make all the content can show in the window.
-"set nowrap
+set wrap
 "default on??
 
 "show what you type at the bottom left
@@ -118,9 +129,9 @@ set backspace=indent,eol,start
 "zo      展开折叠
 "zO     对所在范围内所有嵌套的折叠点展开
 "change the cursor at different mode
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+"let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 "status bar 2 line
 set laststatus=2
 "vim exec *** , exec at the dir where the file is
